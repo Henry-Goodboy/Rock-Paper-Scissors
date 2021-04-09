@@ -17,5 +17,4 @@ else if (ranNum == 2) {
     answer = 'Scissors'
 }
 
-console.log(ranNum);
 console.log(answer);
