@@ -10,21 +10,22 @@ function userPlay() {
     playerSelection = anycaseInput.toUpperCase();
 
     if (playerSelection == 'ROCK') {
-        console.log('Rock');
+        playerSelection = 'Rock';
+        // console.log('Rock');
     }
     else if (playerSelection == 'PAPER') {
-        console.log('Paper');
+        playerSelection = 'Paper';
+        // console.log('Paper');
     }
     else if (playerSelection == 'SCISSORS') {
-        console.log('Scissors');
+        playerSelection = 'Scissors';
+        // console.log('Scissors');
     }
     else {
-        console.log('Invalid Input');
+        playerSelection = 'Invalid';
+        // console.log('Invalid Input');
     }
 }
-
-//Run userPlay function
-userPlay();
 
 //Declare variable outside of function
 let ranNum;
@@ -43,9 +44,51 @@ function computerPlay() {
     else if (ranNum == 2) {
         computerSelection = 'Scissors';
     }
-    
-    console.log(computerSelection);
-   
 }
-//Run computerPlay function
-computerPlay();
+
+
+
+
+// Sets the priority of one choice over another and returns a win or lose
+let score;
+
+function playRound() {
+    if (playerSelection == computerSelection) {
+        score = ('It\'s a Draw!');
+    }
+    
+    else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+        score = ('You Win! Paper covers Rock!');
+    }
+    
+    else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+        score = ('You Lose! Rock smashes Scissors!');
+    }
+    
+    else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+        score = ('You Win! Scissors cuts Paper!');
+    }
+    
+    else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        score = ('You Lose! Paper covers Rock!');    
+    }
+    
+    else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+        score = ('You Win! Rock Smashes Scissors!');
+    }
+    
+    else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        score = ('You Lose! Scissors cuts Paper!');    
+    }
+    
+    else {
+        score = ('Invalid');
+    }
+}
+
+//Run function
+computerPlay(); 
+userPlay();
+playRound();
+console.log(`You picked: ${playerSelection} and the Computer picked: ${computerSelection}`);
+console.log(score);
